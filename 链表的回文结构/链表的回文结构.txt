@@ -1,0 +1,60 @@
+
+/*
+struct ListNode {
+	int val;
+	struct ListNode *next;
+	ListNode(int x) : val(x), next(NULL) {}
+};*/
+ListNode* findrightbegin(ListNode *A)//自定义函数
+{
+	ListNode*slow = A;
+	ListNode*fast = A;
+	ListNode*head_right = nullptr;
+	while (fast&&fast->next)
+	{
+		slow = slow->next;
+		fast = fast->next->next;
+	}
+	if (fast != nullptr)
+		head_right = slow->next;
+	else
+		head_right = slow;
+	return head_right;
+}
+
+ListNode* reverse_right(ListNode **phead)//自定义函数
+{
+	ListNode*newhead = *phead;
+	ListNode*cur = newhead->next;
+	ListNode*next = nullptr;
+	newhead->next = nullptr;
+	while (cur)
+	{
+		next = cur->next;
+		cur->next = newhead;
+		newhead = cur;
+		cur = next;
+	}
+	return newhead;
+}
+
+class PalindromeList {
+public:
+	bool chkPalindrome(ListNode* A) {
+		// write code here
+		if (A == nullptr || A->next == nullptr)
+			return true;
+		ListNode* left_head = A;
+		ListNode* right_begin = findrightbegin(A);
+		ListNode* right_head = reverse_right(&right_begin);
+		while (right_head)
+		{
+			if (left_head->val != right_head->val)
+				return false;
+			left_head = left_head->next;
+			right_head = right_head->next;
+		}
+		return true;
+	}
+};
+
