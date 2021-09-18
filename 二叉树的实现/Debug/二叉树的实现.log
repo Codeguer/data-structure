@@ -1,0 +1,5 @@
+﻿  BinaryTree.c
+F:\编程文件汇集\数据结构\数据结构复习2.0\二叉树的实现\BinaryTree.c(114,3): warning C4033: “BinaryTreeComplete”必须返回值
+F:\编程文件汇集\数据结构\数据结构复习2.0\二叉树的实现\BinaryTree.c(86): warning C4715: “BinaryTreeFind”: 不是所有的控件路径都返回值
+F:\编程文件汇集\数据结构\数据结构复习2.0\二叉树的实现\BinaryTree.c(140): warning C4715: “BinaryTreeComplete”: 不是所有的控件路径都返回值
+  二叉树的实现.vcxproj -> F:\编程文件汇集\数据结构\数据结构复习2.0\二叉树的实现\Debug\二叉树的实现.exe
