@@ -1,0 +1,9 @@
+﻿  Sort.c
+  Test.c
+  正在生成代码
+F:\编程文件汇集\数据结构\数据结构复习2.0\排序\Sort.c(136): warning C4715: “GetMiddle”: 不是所有的控件路径都返回值
+  7 of 29 functions (24.1%) were compiled, the rest were copied from previous compilation.
+    1 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+  排序.vcxproj -> F:\编程文件汇集\数据结构\数据结构复习2.0\排序\Release\排序.exe
