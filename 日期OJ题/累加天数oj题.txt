@@ -1,0 +1,46 @@
+https://www.nowcoder.com/practice/eebb2983b7bf40408a1360efb33f9e5d?tpId=40&&tqId=31013&rp=1&ru=/activity/oj&qru=/ta/kaoyan/question-ranking
+#include<iostream>
+using namespace std;
+
+void DayDate(int& year, int& month, int& day, int nums) {
+    int mday[] = { 0,31,28,31,30,31,30,31,31,30,31,30,31 };
+    int m_day[] = { 0,31,29,31,30,31,30,31,31,30,31,30,31 };
+
+    while (nums-- > 0) {
+        day++;
+        if ((year % 4 == 0 && year % 100) || year % 400 == 0) {
+            if (day > m_day[month]) {
+                day = 1;
+                month++;
+            }
+        }
+        else {
+            if (day > mday[month]) {
+                day = 1;
+                month++;
+            }
+        }
+
+        if (month > 12) {
+            month = 1;
+            year++;
+        }
+
+    }
+}
+
+int main() {
+    int m, year, month, day, nums;
+    cin >> m;
+    while (m--) {
+        while (cin >> year >> month >> day >> nums) {
+            DayDate(year, month, day, nums);
+            printf("%d-%02d-%02d\n", year, month, day);
+        }
+    }
+
+
+    return 0;
+}
+
+

@@ -1,0 +1,54 @@
+https://www.nowcoder.com/practice/769d45d455fe40b385ba32f97e7bcded?tpId=37&&tqId=21296&rp=1&ru=/activity/oj&qru=/ta/huawei/question-ranking
+#include<iostream>
+using namespace std;
+
+class Date {
+public:
+	Date(int year, int month, int day) {
+		_year = year;
+		_month = month;
+		_day = day;
+	}
+	int DayDate() {
+		if (_month <= 2) {
+			for (int i = 0; i < _month; i++) {
+				_nums += _monthdays[i];
+			}
+			_nums += _day;
+			return _nums;
+		}
+		else {
+			if ((_year % 100 != 0 && _year % 4 == 0) || (_year % 400 == 0)) {
+				for (int i = 0; i < _month; i++) {
+					_nums += _monthdays[i];
+				}
+				_nums += _day;
+				return ++_nums;
+			}
+			else {
+				for (int i = 0; i < _month; i++) {
+					_nums += _monthdays[i];
+				}
+				_nums += _day;
+				return _nums;
+			}
+		}
+	}
+
+private:
+	int _year;
+	int _month;
+	int _day;
+	int _nums = 0;
+	int _monthdays[13]
+		= { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+};
+
+int main() {
+	int year, month, day;
+	while (cin >> year && cin >> month && cin >> day) {
+		Date d(year, month, day);
+		cout << d.DayDate() << endl;
+	}
+	return 0;
+}

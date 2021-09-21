@@ -1,0 +1,58 @@
+
+//https://www.nowcoder.com/practice/ccb7383c76fc48d2bbc27a2a6319631c?tpId=62&&tqId=29468&rp=1&ru=/activity/oj&qru=/ta/sju-kaoyan/question-ranking
+#include<iostream>
+using namespace std;
+
+int DayDate(int date1, int date2) {
+    int year1, year2, month1, month2, day1, day2;
+    if (date1 > date2) {
+        int tmp = date1;
+        date1 = date2;
+        date2 = tmp;
+    }
+    day1 = date1 % 100; date1 /= 100;
+    month1 = date1 % 100; date1 /= 100;
+    year1 = date1;
+
+    day2 = date2 % 100; date2 /= 100;
+    month2 = date2 % 100; date2 /= 100;
+    year2 = date2;
+
+    int days = 1;
+    int mday[] = { 0,31,28,31,30,31,30,31,31,30,31,30,31 };
+    int m_day[] = { 0,31,29,31,30,31,30,31,31,30,31,30,31 };
+
+    while (year1 != year2 || month1 != month2 || day1 != day2) {
+        day1++;
+        days++;
+        if ((year1 % 4 == 0 && year1 % 100) || year1 % 400 == 0) {
+            if (day1 > m_day[month1]) {
+                day1 = 1;
+                month1++;
+            }
+        }
+        else {
+            if (day1 > mday[month1]) {
+                day1 = 1;
+                month1++;
+            }
+        }
+
+        if (month1 > 12) {
+            month1 = 1;
+            year1++;
+        }
+
+    }
+    return days;
+}
+
+int main() {
+    int date1, date2;
+    while (cin >> date1 >> date2) {
+        cout << DayDate(date1, date2) << endl;
+    }
+
+    return 0;
+}
+
